@@ -1,7 +1,7 @@
 <div align="center">
   <br />
     <h1 align="center">AI Resume Screening & Candidate Ranking Web Application</h1>
-<img width="1470" alt="Dashboard" src="./Frontend/homePage.png">
+<img width="1470" alt="Dashboard" src="./Frontend/public/homePage.png">
 <br />
 
 <div>
