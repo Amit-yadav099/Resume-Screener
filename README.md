@@ -45,6 +45,16 @@ The project is decoupled into two primary directories:
 ## 🤖 Approach Used for Scoring Candidates
 Instead of relying on traditional TF-IDF or strict keyword-matching algorithms—which often fail to understand context or synonyms—this application leverages a **Large Language Model (LLM)**. 
 
+**Current Evaluation Factors**
+
+The AI is instructed to act as an expert HR recruiter and evaluate candidates based on:
+
+Skills match
+Experience relevance
+Education alignment
+Overall suitability for the role
+Contextual understanding of resume content and JD requirements
+
 **The Prompting Strategy:**
 The AI is instructed to act as an "expert HR recruiter." It is provided with both the JD and the resume text and is asked to holistically evaluate the candidate based on:
 - Skills match
@@ -57,9 +67,10 @@ The AI is strictly constrained to output a standardized JSON object.
 - **Markdown Stripping**: The backend sanitizes the LLM's response to ensure raw JSON can be parsed even if the AI wraps it in markdown blocks.
 
 ## 💡 Assumptions & Limitations
-- **File Storage**: Resumes are currently stored on the local disk of the backend server (`/uploads`). In a true production environment, these should be streamed to a cloud bucket (like AWS S3) for horizontal scalability.
-- **Authentication**: For the scope of this initial build, user authentication (e.g., JWT, NextAuth) has been omitted. The dashboard is accessible to anyone with the URL.
-- **API Limits**: The speed of bulk processing is limited by the rate limits of the Google Gemini API. Uploading hundreds of resumes simultaneously may result in throttling.
+- **File Storage**: Resumes are currently stored on the local disk of the backend server (/uploads). In a production environment, cloud storage solutions such as AWS S3, Google Cloud Storage, or Cloudinary should be used.
+- **Authentication**: Authentication and authorization are currently under active development and will be added in upcoming iterations.
+
+- **API Limits**: Bulk resume processing speed depends on Gemini API rate limits and quotas.
 
 ## 🏁 How to Run Locally
 
