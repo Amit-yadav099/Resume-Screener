@@ -38,8 +38,6 @@ coverage/
 Thumbs.db
 
 .next
-*.next
-
 
 # IDE files
 .vscode/
