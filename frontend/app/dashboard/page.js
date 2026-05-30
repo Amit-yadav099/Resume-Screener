@@ -15,7 +15,7 @@ export default function Dashboard() {
 
   const fetchCandidates = async () => {
     try {
-      const res = await fetch('http://localhost:5000/api/upload/candidates');
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/upload/candidates`);
       const data = await res.json();
       if (data.success) {
         setCandidates(data.candidates);
@@ -30,7 +30,7 @@ export default function Dashboard() {
   const handleDeleteAll = async () => {
     if (!confirm('Are you sure you want to delete all resumes? This cannot be undone.')) return;
     try {
-      const res = await fetch('http://localhost:5000/api/upload/candidates', { method: 'DELETE' });
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/upload/candidates`, { method: 'DELETE' });
       const data = await res.json();
       if (data.success) {
         setCandidates([]);
@@ -43,7 +43,7 @@ export default function Dashboard() {
   const handleDeleteSingle = async (id) => {
     if (!confirm('Delete this resume?')) return;
     try {
-      const res = await fetch(`http://localhost:5000/api/upload/candidates/${id}`, { method: 'DELETE' });
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/upload/candidates/${id}`, { method: 'DELETE' });
       const data = await res.json();
       if (data.success) {
         setCandidates(prev => prev.filter(c => c.id !== id));

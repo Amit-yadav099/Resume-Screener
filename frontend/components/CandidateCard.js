@@ -63,7 +63,7 @@ export default function CandidateCard({ candidate, rank, onDelete }) {
 
       <div style={{ marginTop: 'auto', paddingTop: '1rem', borderTop: '1px solid var(--border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <a 
-          href={`http://localhost:5000/${candidate.resume_path}`} 
+          href={`${process.env.NEXT_PUBLIC_API_URL}/${candidate.resume_path}`} 
           target="_blank" 
           rel="noopener noreferrer"
           style={{ fontSize: '0.875rem', color: 'var(--primary)', textDecoration: 'none', fontWeight: 500 }}
